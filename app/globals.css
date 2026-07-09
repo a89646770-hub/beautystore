@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* اعمال استایل روی بدنه سایت به سبک Tailwind v4 */
+body {
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* اعمال فونت وزیرمتن روی تمام المان‌ها بدون تداخل با کلاس‌های Tailwind */
+*, ::before, ::after {
+  font-family: var(--font-vazir), system-ui, sans-serif !important;
+}
