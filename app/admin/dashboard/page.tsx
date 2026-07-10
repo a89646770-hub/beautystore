@@ -1,5 +1,5 @@
 "use client";
-import { useStore } from '../../../data/store';
+import { useStore } from '../../data/store';
 
 export default function AdminDashboard() {
   const { products, updateStock } = useStore();

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useCartStore } from '../components/cartStore';
 
-interface ProductType {
+export interface ProductType {
   id: number;
   name: string;
   price: number;
@@ -14,27 +14,29 @@ interface ProductType {
   stock: number;
 }
 
+// ۱۳ محصول جذاب فروشگاه بیوتی‌استور
+export const PRODUCTS: ProductType[] = [
+  { id: 1, name: "کرم مرطوب کننده قوی بیوتی", price: 185000, image: "🧴", category: "پوست", views: 120, stock: 10 },
+  { id: 2, name: "ریمل حجم دهنده ضد آب", price: 310000, image: "👁️", category: "آرایشی", views: 310, stock: 14 },
+  { id: 3, name: "رژ لب مات مخملی صورتی", price: 220000, image: "💄", category: "آرایشی", views: 450, stock: 5 },
+  { id: 4, name: "سرم ویتامین سی روشن کننده", price: 420000, image: "🧪", category: "پوست", views: 520, stock: 8 },
+  { id: 5, name: "تونر آبرسان گل رز", price: 195000, image: "🌹", category: "پوست", views: 95, stock: 12 },
+  { id: 6, name: "خط چشم ماژیکی ضدآب", price: 160000, image: "✏️", category: "آرایشی", views: 210, stock: 20 },
+  { id: 7, name: "کرم ضد آفتاب بی‌رنگ +SPF50", price: 380000, image: "☀️", category: "پوست", views: 640, stock: 15 },
+  { id: 8, name: "ماسک موی آرگان ترمیم‌کننده", price: 290000, image: "💆‍♀️", category: "مو", views: 180, stock: 7 },
+  { id: 9, name: "ژل شستشوی صورت چای سبز", price: 175000, image: "🧼", category: "پوست", views: 340, stock: 11 },
+  { id: 10, name: "پد آرایش پاک‌کن ۱۲۰ عددی", price: 65000, image: "🧻", category: "ابزار", views: 500, stock: 40 },
+  { id: 11, name: "کانسیلر مایع دور چشم", price: 240000, image: "✨", category: "آرایشی", views: 280, stock: 6 },
+  { id: 12, name: "تینت لب مرطوب‌کننده توت‌فرنگی", price: 135000, image: "🍓", category: "آرایشی", views: 410, stock: 9 },
+  { id: 13, name: "روغن تقویت مژه و ابرو طبیعی", price: 210000, image: "🌱", category: "مو", views: 155, stock: 4 },
+];
+
 export default function Shop() {
   const addToCart = useCartStore((state: any) => state.addToCart);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
 
-  // ۱۳ محصول جذاب فروشگاه بیوتی‌استور
-  const products: ProductType[] = [
-    { id: 1, name: "کرم مرطوب کننده قوی بیوتی", price: 185000, image: "🧴", category: "پوست", views: 120, stock: 10 },
-    { id: 2, name: "ریمل حجم دهنده ضد آب", price: 310000, image: "👁️", category: "آرایشی", views: 310, stock: 14 },
-    { id: 3, name: "رژ لب مات مخملی صورتی", price: 220000, image: "💄", category: "آرایشی", views: 450, stock: 5 },
-    { id: 4, name: "سرم ویتامین سی روشن کننده", price: 420000, image: "🧪", category: "پوست", views: 520, stock: 8 },
-    { id: 5, name: "تونر آبرسان گل رز", price: 195000, image: "🌹", category: "پوست", views: 95, stock: 12 },
-    { id: 6, name: "خط چشم ماژیکی ضدآب", price: 160000, image: "✏️", category: "آرایشی", views: 210, stock: 20 },
-    { id: 7, name: "کرم ضد آفتاب بی‌رنگ +SPF50", price: 380000, image: "☀️", category: "پوست", views: 640, stock: 15 },
-    { id: 8, name: "ماسک موی آرگان ترمیم‌کننده", price: 290000, image: "💆‍♀️", category: "مو", views: 180, stock: 7 },
-    { id: 9, name: "ژل شستشوی صورت چای سبز", price: 175000, image: "🧼", category: "پوست", views: 340, stock: 11 },
-    { id: 10, name: "پد آرایش پاک‌کن ۱۲۰ عددی", price: 65000, image: "🧻", category: "ابزار", views: 500, stock: 40 },
-    { id: 11, name: "کانسیلر مایع دور چشم", price: 240000, image: "✨", category: "آرایشی", views: 280, stock: 6 },
-    { id: 12, name: "تینت لب مرطوب‌کننده توت‌فرنگی", price: 135000, image: "🍓", category: "آرایشی", views: 410, stock: 9 },
-    { id: 13, name: "روغن تقویت مژه و ابرو طبیعی", price: 210000, image: "🌱", category: "مو", views: 155, stock: 4 },
-  ];
+  const products: ProductType[] = PRODUCTS;
 
   // محاسبه منطق صفحه‌بندی
   const indexOfLastItem = currentPage * itemsPerPage;
